@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<title>CORTEX-HUB WEBSITE</title>
+<head>
+<h1 style="font-size:30px;font-family:Arial;font-color:black;"/1>Cortex-hub website</h1>
+</head>
+<body style="background-color:pink">
+<h2> Welcome to Cortex-hub</h2>
+<h2> An Easten Cape Entrepreneurial Hub</h2>
+<p>Take a visual tour</p>
+<a href="http://www.thecortexhub.com"><img src="https://pbs.twimg.com/profile_images/526715879296204800/YUuexK4w.png"></a> 
+<h3> E.L IDZ</h3>
+<h3>Zone 1C Block D</h3>
+<h3> Lower Chester Road</h3>
+<h3> Sunny Ridge</h3>
+<h3> 5201</h3>
+<iframe src="http://free.timeanddate.com/clock/i4kk5q93/n1484/szw110/szh110/hoc009/hbw0/hfc9ff/cf100/hnc0f9/hwc000/fan2/fas16/fac555/fdi60/mqcf0f/mqs4/mql2/mqw4/mqd78/mhcf90/mhs4/mhl3/mhw4/mhd78/hhc990/hhs2/hmc990/hms2/hscf09" frameborder="0" width="112" height="116"></iframe>
+
+<h1> The work hard/Play hard environment</h1>
+<ul>
+<li>PROJECTS</li>
+<ul>
+<li>Coding</li>
+<li>Presentations</li>
+<li>Research</li>
+
+</ul>
+<li>GAMES</li>
+<ul>
+<li>Table tennis</li>
+<li>Table pool</li>
+<li>Basket ball</li>
+<li>Fooz ball</li>
+<li>Skating board</li>
+</ul>
+
+<li>EXERSIZES</li>
+<ol>
+<li>Bike</li>
+<li>Trade-mill</li>
+<li>Trampoline</li>
+</ol>
+<title>Html calculator</title>
+</head>
+<body>
+<head><title>Morning Checklist</title></head>
+<body>
+<h1>Morning Checklist</h1>
+<ul>
+<li><input type="checkbox"/><label>Change</label></li>
+<li><input type="checkbox"/><label>Contacts</label></li>
+<li><input type="checkbox"/><label>Potty</label></li>
+<li><input type="checkbox"/><label>Rinse Mouth</label></li>
+<li><input type="checkbox"/><label>Laptop, wallet and keys</label></li>
+<li><input type="checkbox"/><label>Shoes & Coat</label></li>
+<li><input type="checkbox"/><label>Backpack</label></li>
+</ul>
+<br>
+
+
+Video Game Trivia
+
+        <br />
+
+        Asking question <span id="NumberAsked">1</span> of 10 with <span id="NumberCorrect">0</span> answers correct</p>
+
+    <p>
+
+        <span id="TriviaQuestion">???</span>
+
+    </p>
+
+    <p>
+
+        &nbsp;
+
+        <input id="RadioTrue" type="radio" value="true" name="answer" checked="checked" /> True
+
+        &nbsp;&nbsp;&nbsp;
+
+        <input id="RadioFalse" type="radio" value="false" name="answer" /> False
+
+    </p>
+
+    <p>
+
+        <input id="ButtonContinue" onclick="checkAnswer();" type="button" value="continue" />
+
+    </p>
+
+ 
+
+    <script language="javascript" type="text/javascript">
+
+        // Array of trivia data
+
+        var TriviaData = new Array(10)
+
+        createTwoDimensionalArray(3);
+
+ 
+
+        // Variables to track state of the game
+
+        // i.e. number questions asked, current correct total and current question
+
+        var questionsAsked = 0;
+
+        var totalCorrect = 0;
+
+        var currentQuestion = 0;
+
+        var selectionValid = false;
+
+ 
+
+        // Questions
+
+        TriviaData[0][0] = "Donkey Kong, Pac-Man and Tempest were all released in the same year.";
+
+        TriviaData[1][0] = "Capcom is a Chinese company.";
+
+        TriviaData[2][0] = "Othello was the first arcade game released by Nintendo.";
+
+        TriviaData[3][0] = "The Atari 2600 video game system was first released in 1975.";
+
+        TriviaData[4][0] = "The Sega Saturn game system was released first in the U.S. in 1995.";
+
+        TriviaData[5][0] = "The legendary game Doom was released in 1993 for the PC.";
+
+        TriviaData[6][0] = "Dragon's Lair was the first arcade game to feature laser-disc technology.";
+
+        TriviaData[7][0] = "In 1990, Nintendo and Sega went to court over the rights to Tetris.";
+
+        TriviaData[8][0] = "In 1996 Nintendo sells its billionth cartridge worldwide.";
+
+        TriviaData[9][0] = "Microsoft first released the Xbox gaming system worldwide in 2001.";
+
+    
+
+        // Answers
+
+        TriviaData[0][1] = "true";
+
+        TriviaData[1][1] = "false";
+
+        TriviaData[2][1] = "true";
+
+        TriviaData[3][1] = "false";
+
+        TriviaData[4][1] = "false";
+
+        TriviaData[5][1] = "true";
+
+        TriviaData[6][1] = "true";
+
+        TriviaData[7][1] = "false";
+
+        TriviaData[8][1] = "true";
+
+        TriviaData[9][1] = "false";
+
+ 
+
+        // Has question been asked
+
+        // -- necessary because we are asking in random order
+
+        TriviaData[0][2] = "no";
+
+        TriviaData[1][2] = "no";
+
+        TriviaData[2][2] = "no";
+
+        TriviaData[3][2] = "no";
+
+        TriviaData[4][2] = "no";
+
+        TriviaData[5][2] = "no";
+
+        TriviaData[6][2] = "no";
+
+        TriviaData[7][2] = "no";
+
+        TriviaData[8][2] = "no";
+
+        TriviaData[9][2] = "no";
+
+ 
+
+        // Load up first question
+
+        setQuestion();
+
+ 
+
+        // Sets question text and indicator so that we know the question has been displayed
+
+        function setQuestion() {
+
+            selectionValid = false; // Flag to make sure question has not been asked yet
+
+            while (selectionValid == false) {
+
+                currentQuestion = Math.floor(Math.random() * 10); // randomly select starting question
+
+                if (TriviaData[currentQuestion][2] == "no") {
+
+                    selectionValid = true;
+
+                }
+
+            }
+
+            document.getElementById("TriviaQuestion").innerHTML = TriviaData[currentQuestion][0];
+
+            TriviaData[currentQuestion][2] = "yes";
+
+            questionsAsked = questionsAsked + 1;
+
+        }
+
+ 
+
+        function processAnswer(myAnswer) {
+
+            if (TriviaData[currentQuestion][1] == myAnswer) {
+
+                // answer correct
+
+                totalCorrect = totalCorrect + 1;
+
+            }
+
+        }
+
+ 
+
+        // This function creates our two dimensional array
+
+        function createTwoDimensionalArray(arraySize) {
+
+            for (i = 0; i < TriviaData.length; ++i)
+
+                TriviaData[i] = new Array(arraySize);
+
+        }
+
+ 
+
+        // This function checks the answer, updates correct total
+
+        // and randomly selects the next question
+
+        function checkAnswer() {
+
+            if (document.getElementById("RadioTrue").checked) {
+
+                processAnswer("true");
+
+            }
+
+            else {
+
+                processAnswer("false");
+
+            }
+
+            // get next question if not asked all yet
+
+            if (questionsAsked < 10) {
+
+                setQuestion();
+
+            }
+
+            // final question asked - disable button and show final results
+
+            else {
+
+                alert("Quiz complete! You got " + totalCorrect + " correct out of 10.");
+
+                document.getElementById("ButtonContinue").disabled = true;
+
+            }
+
+            // update totals
+
+            document.getElementById("NumberAsked").innerHTML = questionsAsked;
+
+            document.getElementById("NumberCorrect").innerHTML = totalCorrect;
+
+        }
+
+ 
+
+    </script>
+	<br>
+
+<form name="calculator" >
+Solution<input type="textfield" name="ans" value="">
+<br>
+<input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+<input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+<input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+<input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+<br>
+<input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+<input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+<input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+<input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+<br>
+<input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+<input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+<input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+<input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+<br>
+<input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+<input type="reset" value="Reset">
+<input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+</form>
+<br>
+<link type="text/css" href="http://text-fixer.s3.amazonaws.com/word-counter-embed-min.css" rel="stylesheet" media="all" /><div id="tf-online-tools"><p id="tfToolLink"><small>Free tool from TextFixer.com: <a href="http://www.textfixer.com/tools/online-word-counter.php" target="_blank">Online Word Counter</a></small></p></div><script type="text/javascript" src="http://text-fixer.s3.amazonaws.com/word-counter-embed-min.js"></script>
+</body>
+
+ 
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
